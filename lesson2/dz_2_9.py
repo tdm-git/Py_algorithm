@@ -5,11 +5,13 @@ user_input = input('введите последовательность элем
 max_ch = 0
 max_sum = 0
 for i in user_input.split():
-    if max_ch < int(i):
-        max_ch = int(i)
-for i in str(max_ch):
-    max_sum += int(i)
-print(f' {max_ch} {max_sum}')
+    ch_sum = 0
+    for j in str(i):
+        ch_sum += int(j)
+    if max_sum < ch_sum:
+        max_sum = ch_sum
+        max_ch = i
+print(f'в введенной последовательности - число с максимальной суммой цифр {max_ch} , сумма цифр которого {max_sum}')
 
 
 

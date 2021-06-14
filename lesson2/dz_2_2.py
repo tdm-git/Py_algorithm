@@ -3,7 +3,7 @@
 
 chet = 0
 nechet = 0
-user_input = input("введите натуральное число - ")
+user_input = input("введите натуральное  целое число - ")
 for i in user_input:
     if int(i) % 2 != 0:
         nechet += 1

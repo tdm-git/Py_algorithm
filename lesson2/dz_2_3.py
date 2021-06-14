@@ -2,7 +2,7 @@
 если введено число 3486, то надо вывести число 6843."""
 
 result = ''
-user_input = input("введите натуральное число - ")
+user_input = input("введите целое натуральное число - ")
 for i in user_input:
     result = i + result
 print(result)
