@@ -4,4 +4,5 @@ result = []
 for i in range(2, 10):
     for j in range(i, 100, i):
         result.append(j)
+print(result)
 print(len(result))
