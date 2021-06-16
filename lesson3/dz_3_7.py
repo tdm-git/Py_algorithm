@@ -3,12 +3,18 @@
 import random
 
 sample_list = [random.randint(1, 100) for i in range(15)]
-min1 = sample_list[0]
-min2 = sample_list[1]
+min1 = 101  # важно задать начальные значения различными элементами
+min2 = 102  # не встречающимися в массиве
 for i in sample_list:
     if i < min1:
         min1 = i
-        if min1 < min2:
+        if min1 < min2:  # обязательно повторная проверка, для второго минимума
             min2, min1 = min1, min2
-print(sample_list)
-print(min1, min2)
+print('первоначальный список : ', sample_list)
+print('минимальные значения списка :', min1, min2)
+# второй вариант решения задачи
+min1 = min(sample_list)
+sample_list.remove(min1)
+min2 = min(sample_list)
+print('минимальные значения списка альтернативным способом :', min1, min2)
+

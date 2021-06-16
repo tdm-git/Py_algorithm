@@ -1,18 +1,20 @@
 """Найти максимальный элемент среди минимальных элементов столбцов матрицы"""
-sample_matrix = [[2, 3, 4, 1], [4, 2, 3, 6], [6, 4, 2, 3], [4, 9, 2, 3]]
-min_line = []
-
-for i in zip(*sample_matrix):
-    min_ch = i[0]
+sample_matrix = [[2, 3, 4, 1], [4, 2, 3, 6], [6, 4, 2, 3], [4, 9, 2, 3]]  # зададим матрицу 4*4
+for i in sample_matrix:  # выводим результат
+    print(*i)     # используем оператор "распаковки" для вывода строки матрицы
+min_line = []  # список для хранения минимальных значений столбцов
+for i in zip(*sample_matrix):  # zip позволяет поочередно вывводить элементы множеств + оператор "*" распаковки
+    min_ch = i[0]  # помещает в переменную i значения столбцов матрицы
     for j in i:
         if j < min_ch:
             min_ch = j
-    min_line.append(min_ch)
-
+    min_line.append(min_ch)  # запоминаем минимум
 max_ch = min_line[0]
-for i in min_line:
+for i in min_line:  # находим максимимум среди минимальных элементов
     if max_ch < i:
         max_ch = i
+print(f'максимальный элемент {max_ch} -  средми минимальных значений столбцов {min_line}')
+# второй вариант с использованием max & min
+print(f'максимальный элемент {max(min(i) for i in zip(*sample_matrix))} ')
 
-print(min_line)
-print(max_ch)
+
