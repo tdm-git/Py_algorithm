@@ -4,11 +4,14 @@ result = []  # результатом будет двухмерный масси
 sum_ch = 0
 line_list = []
 for i in range(1, 17):
+    user_choise = input('введите значение элемента матрицы  - ')
+    while not user_choise.isdigit():
+        user_choise = input('повторите ввод элемента матрицы (целое число)  - ')
     user_choise = int(input('введите значение элемента матрицы  - '))
-    line_list.append(f'{user_choise:>5}')  # добавим небольшое форматирование
+    line_list.append(f'{user_choise:>3}')  # добавим небольшое форматирование
     sum_ch += user_choise
     if i % 4 == 0:  # после 4го элемента добавляем сумму и обнуляем промежуточный список
-        line_list.append(sum_ch)
+        line_list.append(f'{sum_ch:>3}')
         result.append(line_list)
         sum_ch = 0
         line_list = []

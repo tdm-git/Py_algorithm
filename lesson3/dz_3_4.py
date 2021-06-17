@@ -18,4 +18,5 @@ for i, j in enumerate(list2):
         max_ind = i
 print('список - ', sample_list)
 # print(list1, list2)
+# при одинаковом количестве повторов нескольких чисел - будет выведено первое с таким количеством
 print(f'число "{list1[max_ind]}" встречается чаще всех - {max_ch} раз')

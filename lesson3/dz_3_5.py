@@ -9,4 +9,4 @@ for i, j in enumerate(sample_list):
         max_ch = j
         max_ind = i
 print('список - ', sample_list)
-print(f'максимальное отрицательно число "{max_ch}" находится на {max_ind} позиции')
+print(f'максимальное отрицательно число "{max_ch}" находится на {max_ind + 1} позиции')
