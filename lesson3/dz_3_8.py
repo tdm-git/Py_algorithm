@@ -7,7 +7,7 @@ for i in range(1, 17):
     user_choise = input('введите значение элемента матрицы  - ')
     while not user_choise.isdigit():
         user_choise = input('повторите ввод элемента матрицы (целое число)  - ')
-    user_choise = int(input('введите значение элемента матрицы  - '))
+    user_choise = int(user_choise)
     line_list.append(f'{user_choise:>3}')  # добавим небольшое форматирование
     sum_ch += user_choise
     if i % 4 == 0:  # после 4го элемента добавляем сумму и обнуляем промежуточный список
