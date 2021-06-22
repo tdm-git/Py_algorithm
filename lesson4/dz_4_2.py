@@ -36,8 +36,7 @@ def num_list1(n):
 def num_list2(n):
     a = []
     for i in range(2, n + 1):
-        # пробегаем по списку (lst) простых чисел
-        for j in a:
+        for j in a:  # пробегаем по списку простых чисел
             if i % j == 0:
                 break
         else:
