@@ -22,21 +22,3 @@ sample_list = [random.randint(-100, 100) for i in range(15)]
 print('первоначальный список : ', sample_list)
 my_sort(sample_list)
 print('отсортированый список : ', sample_list)
-
-
-# def bubble_sort(lst):
-#     n = 1
-#
-#     while n < len(lst):
-#         count = 0
-#
-#         for i in range(len(lst) - 1 - (n - 1)):
-#
-#             if lst[i] < lst[i + 1]:
-#                 lst[i], lst[i + 1] = lst[i + 1], lst[i]
-#                 count += 1
-#
-#         if count == 0:
-#             break
-#
-#         n += 1
