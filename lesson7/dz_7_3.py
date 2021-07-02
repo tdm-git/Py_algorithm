@@ -6,93 +6,30 @@
 import random
 
 
-def median_search(lst, first, last):
-
-    lst = lst.copy()
+def list_mediana(lst: list, first: int, last: int):  # рекурсивная функция поиска медианы
     ind = len(lst) // 2
-
-    if first >= last:
+    if first >= last:  # условие выхода из рекурсии
         return lst[ind]
-
-    pillar = lst[ind]
+    splitter = lst[ind]  # значение середины списка
     i = first
     j = last
-
     while i <= j:
-
-        while lst[i] < pillar:
+        while lst[i] < splitter:  # проверяем значения слева от разделителя
             i += 1
-
-        while lst[j] > pillar:
+        while lst[j] > splitter:  # проверяем значения справа от разделителя
             j -= 1
-
-        if i <= j:
+        if i <= j:  # делаем перестановку
             lst[i], lst[j] = lst[j], lst[i]
             i += 1
             j -= 1
-
-    if ind < i:
-        lst[ind] = median_search(lst, first, j)
-
+    if ind < i:  # если не совпали то рекурсивно повторяем поиск
+        lst[ind] = list_mediana(lst, first, j)
     elif j < ind:
-        lst[ind] = median_search(lst, i, last)
-
-    return lst[ind]
-
-
-def merge_sort(arr):
-
-    def merge(fst, snd):
-        res = []
-        i, j = 0, 0
-
-        while i < len(fst) and j < len(snd):
-
-            if fst[i] < snd[j]:
-                res.append(fst[i])
-                i += 1
-
-            else:
-                res.append(snd[j])
-                j += 1
-
-        res.extend(fst[i:] if i < len(fst) else snd[j:])
-
-        return res
-
-    def div_half(lst):
-
-        if len(lst) == 1:
-            return lst
-
-        elif len(lst) == 2:
-            return lst if lst[0] <= lst[1] else lst[::-1]
-
-        else:
-            return merge(div_half(lst[:len(lst)//2]), div_half(lst[len(lst)//2:]))
-
-    return div_half(arr)
+        lst[ind] = list_mediana(lst, i, last)
+    return lst[ind]  # иначе возвращаем значение
 
 
-MIN_ITEM = 0
-MAX_ITEM = 50
-MIN_SIZE = 5
-MAX_SIZE = 10
-
-m = random.randint(MIN_SIZE, MAX_SIZE)
-size = 2 * m + 1
-
-array = [random.randint(MIN_ITEM, MAX_ITEM) for _ in range(size)]
-
-
-print(f'Сгенерирован массив из 2*{m}+1 = {size}  элементов:', array, sep='\n')
-
-median = median_search(array, 0, len(array) - 1)
-print(f'Медиана: {median}')
-# print(array, '\n')
-
-print('Отсортированный массив: ', merge_sort(array), sep='\n')
-if median == merge_sort(array)[len(array)//2]:
-    print('\nВерно')
-else:
-    print('\nОшибка!!!')
+m = 3
+sample_list = [random.randint(0, 50) for i in range(2 * m + 1)]
+print('первоначальный список: ', sample_list)
+print('медианное значение: ', list_mediana(sample_list, 0, len(sample_list) - 1))
