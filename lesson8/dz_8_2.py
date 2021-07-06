@@ -48,7 +48,7 @@ def get_code(root, codes=dict(), code=''):
     return codes
 
 
-# кодируем строку
+# кодируем строку по справочнику кодов
 def coding(string, codes):
     res = ''
     for symbol in string:
@@ -56,7 +56,7 @@ def coding(string, codes):
     return res
 
 
-# декодируем
+# декодируем строку по справочнику
 def decoding(string, codes):
     res = ''
     i = 0
@@ -70,8 +70,6 @@ def decoding(string, codes):
 
 my_string = input('введите строку для обработки: ')
 dict_codes = get_code(get_tree(my_string))
-
 print('шифр: ', dict_codes)
-coding_str = coding(my_string, dict_codes)
-print('закодированная строка: ', coding_str)
+print('закодированная строка: ', coding_str := coding(my_string, dict_codes))
 print('декодированная строка: ', decoding(coding_str, dict_codes))
