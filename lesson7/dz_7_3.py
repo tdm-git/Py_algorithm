@@ -22,14 +22,14 @@ def list_mediana(lst: list, first: int, last: int):  # рекурсивная ф
             lst[i], lst[j] = lst[j], lst[i]
             i += 1
             j -= 1
-    if ind < i:  # если не совпали то рекурсивно повторяем поиск
+    if ind < i:  # если не совпали то рекурсивно повторяем
         lst[ind] = list_mediana(lst, first, j)
     elif j < ind:
         lst[ind] = list_mediana(lst, i, last)
     return lst[ind]  # иначе возвращаем значение
 
 
-m = 3
+m = 3  # зададим небольшое значение для отладки и наглядности
 sample_list = [random.randint(0, 50) for i in range(2 * m + 1)]
 print('первоначальный список: ', sample_list)
 print('медианное значение: ', list_mediana(sample_list, 0, len(sample_list) - 1))
