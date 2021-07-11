@@ -9,9 +9,8 @@ sum_substring = set()  # используем множество для полу
 for i in range(len(user_input)):
     for j in range(len(user_input), i, -1):
         sub_str = user_input[i:j]
-        if sub_str == user_input or sub_str.isspace():  # исключим по условию из примечания задачи
+        if sub_str == user_input or sub_str.isspace():  # исключим по условию - саму строку и пробелы
             continue
-        # sum_substring.add(sub_str)
         sum_substring.add(hashlib.sha1(sub_str.encode('utf-8')).hexdigest())
-# print(sum_substring)
+
 print(f'в строке "{user_input}" - встречается {len(sum_substring)} подстроки')
